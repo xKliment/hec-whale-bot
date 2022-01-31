@@ -48,5 +48,5 @@ node index.js
 
 ## Authors
 
-- [@KIiment](https://github.com/KIiment)
+- [@KIiment](https://github.com/xKliment)
 
