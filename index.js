@@ -30,10 +30,10 @@ client.login(process.env.DISCORDJS_BOT_TOKEN);
 async function handleTransaction(transaction) {
     let buy = "in"
     let sell = "out"
-    let whaleAlertAmount ="30000"
+    let whaleAlertAmount ="30000" // SETS THE USD AMOUNT WHEN THE BOT WILL POST A ALERT / PING
     
-    const WhaleNotify = "933667999859232828"
-    const NotfiyChannel = "932650535276920862"
+    const WhaleNotify = "NOTIFY DISCOIRD ROLE"
+    const NotfiyChannel = "NOTIFY DISCORD CHANNEL"
     
     let direction = transaction.direction
     let txhhash = transaction.transaction_address
