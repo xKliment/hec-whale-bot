@@ -118,7 +118,7 @@ async function main() {
 
     console.log(`${new Date().toUTCString()} -> Looking for new Transactions`)
     for (const transaction of res.data.data) {
-        if (prevTransaction === transaction.transaction_address) {
+        if (prevTransaction === transaction.timestamp) {
             console.log(`${new Date().toUTCString()} -> No New Transactions! \n`)
             break;
         }
@@ -128,9 +128,9 @@ async function main() {
     // Store latest transaction
 
     if (Object.keys(res.data.data).length == 0){
-        console.log(`${new Date().toUTCString()} -> TXH HAS NOT AVAILABLE!"`)
+        console.log(`${new Date().toUTCString()} -> Timestamp not available."`)
     } else {
-        prevTransaction = res.data.data[0].transaction_address;
+        prevTransaction = res.data.data[0].timestamp;
     }
 
 }
