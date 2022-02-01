@@ -112,7 +112,7 @@ async function main() {
     try {
         console.log(`\n${new Date().toUTCString()} -> Trieng to fetch data...`)
         const prevTsQuery = prevTimestamp ? `&begin_timestamp=${prevTimestamp}` : '';
-        res = await axios.get(`https://api.dev.dex.guru/v1/chain/250/tokens/0x5C4FDfc5233f935f20D2aDbA572F770c2E377Ab0/transactions/?api-key=${dexAPIKey}${prevTsQuery}`)
+        res = await axios.get(`https://api.dev.dex.guru/v1/chain/250/tokens/0x5C4FDfc5233f935f20D2aDbA572F770c2E377Ab0/transactions/?api-key=${dexAPIKey}${prevTsQuery}&limit=25`)
         prevTimestamp = res.data.data[0].timestamp;
         console.log(`${new Date().toUTCString()} -> New Timestamp Set: ${prevTimestamp}\n`)
         } catch(e) {
