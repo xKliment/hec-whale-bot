@@ -97,7 +97,7 @@ async function handleTransaction(transaction) {
         .setTitle(':rotating_light: Sell Alert :rotating_light:')
         .setColor('#6253cb')
         .setThumbnail('https://i.imgur.com/ILHZRAJ.png')
-        .setDescription(`From: ${transaction_address_from}\nTo: ${transaction_adress_to}\nWallet Type: ${traderType}\n\nTransaction hash: [Click here!](https://ftmscan.com/tx/${txhhash})\n\nUSD Value: ${amount_usd.toFixed(2)}$\nTokens Sent: ${tokens_in.toFixed(4)} ${tokens_in_symbol}\nTokens Recieved : ${tokens_out.toFixed(4)} ${tokens_out_symbol}`)
+        .setDescription(`From: ${transaction_address_from}\nTo: ${transaction_adress_to}\nWallet Type: ${traderType}\n\nTransaction hash: [Click here!](https://ftmscan.com/tx/${txhhash})\n\nUSD Value: ${amount_usd.toFixed(2)}$\nTokens Sent: ${tokens_in.toFixed(4)} ${tokens_in_symbol}\nTokens Received : ${tokens_out.toFixed(4)} ${tokens_out_symbol}`)
         .setTimestamp()
         .setFooter({ text: `Transactions get scraped every 20 Seconds` })
 
