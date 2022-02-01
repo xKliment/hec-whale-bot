@@ -5,6 +5,7 @@ const { Client, Intents, MessageEmbed } = require('discord.js')
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 let prevTransaction;
+let prevTimestamp;
 const dexAPIKey = (process.env.DEX_API_KEY);
 
 //Does Discord bot stuff
@@ -110,7 +111,10 @@ async function handleTransaction(transaction) {
 async function main() {
     try {
         console.log(`\n${new Date().toUTCString()} -> Trieng to fetch data...`)
-        res = await axios.get(`https://api.dev.dex.guru/v1/chain/250/tokens/0x5C4FDfc5233f935f20D2aDbA572F770c2E377Ab0/transactions/?api-key=${dexAPIKey}`)
+        const prevTsQuery = prevTimestamp ? `&begin_timestamp=${prevTimestamp}` : '';
+        res = await axios.get(`https://api.dev.dex.guru/v1/chain/250/tokens/0x5C4FDfc5233f935f20D2aDbA572F770c2E377Ab0/transactions/?api-key=${dexAPIKey}${prevTsQuery}`)
+        prevTimestamp = res.data.data[0].timestamp;
+        console.log(`${new Date().toUTCString()} -> New Timestamp Set: ${prevTimestamp}\n`)
         } catch(e) {
             console.log(`\n${new Date().toUTCString()} -> Couldnt fetch new data error.\n`)
             return;
